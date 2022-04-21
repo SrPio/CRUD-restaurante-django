@@ -1,0 +1,67 @@
+{% extends "./base.html" %} {% block title %}Platos{% endblock %} {%block body%}
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <h2>Ediatar Platos</h2>
+    <div class="card">
+      <div class="card-body">
+        <form action="/editarPlato/" method="POST">
+          {% csrf_token %}
+          <div class="form-group py-1">
+            <input
+              value="{{plato.codigo}}"
+              type="text"
+              id="txtCodigo"
+              name="txtCodigo"
+              class="form-control"
+              placeholder="Código"
+              maxlength="6"
+              required
+              readonly
+            />
+          </div>
+          <div class="form-group py-1">
+            <input
+              value="{{plato.nombre}}"
+              type="text"
+              id="txtNombre"
+              name="txtNombre"
+              class="form-control"
+              placeholder="Nombre"
+              maxlength="50"
+              required
+            />
+          </div>
+          <div class="form-group py-1">
+            <input
+              value="{{plato.categoria}}"
+              type="text"
+              id="txtCategoria"
+              name="txtCategoria"
+              class="form-control"
+              placeholder="Categoria"
+              maxlength="20"
+              required
+            />
+          </div>
+          <div class="form-group py-1">
+            <label for="tiempo">Tiempo (minutos):</label>
+            <input
+              value="{{plato.tiempo}}"
+              type="number"
+              id="tiempo"
+              name="tiempo"
+              min="1"
+              max="360"
+            />
+          </div>
+          <div class="form-group py-1">
+            <button type="submit" class="btn btn-success btn-block text-white">
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
