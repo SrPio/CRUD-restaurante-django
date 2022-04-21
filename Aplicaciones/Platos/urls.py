@@ -8,7 +8,7 @@ urlpatterns = [
     path('edicionPlato/<codigo>', views.edicionPlato),
     path('editarPlato/', views.editarPlato),
     path('eliminacionPlato/<codigo>', views.eliminacionPlato),
-    path('edicionAlimento/<nombre>', views.edicionAlimento),
+    path('edicionAlimento/<id>', views.edicionAlimento),
     path('editarAlimento/', views.editarAlimento),
-    path('eliminacionAlimento/<nombre>', views.eliminacionAlimento)
+    path('eliminacionAlimento/<id>', views.eliminacionAlimento)
 ]

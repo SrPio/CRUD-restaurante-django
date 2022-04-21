@@ -57,27 +57,26 @@ def eliminacionPlato(request, codigo):
 
 """---------------------"""
 
-def edicionAlimento(request, nombre):
-    alimento = Alimento.objects.get(nombre=nombre)
+def edicionAlimento(request, id):
+    alimento = Alimento.objects.get(id=id)
     return render(request, 'edicionAlimento.html', {"alimento": alimento})
 
 def editarAlimento(request):
-    nombre=request.POST.get("txtNombreAlimento")
-    categoria=request.POST.get("txtCategoriaAlimento")
-    plato_id=request.POST.get("plato")
-    plato=Plato.objects.get(codigo=plato_id)
+    id=request.POST.get("id")
+    nombre=request.POST.get("txtNombre")
+    categoria=request.POST.get("txtCategoria")
+    plato=request.POST.get("plato")
 
-    alimento = Alimento.objects.get(nombre=nombre)
+    alimento = Alimento.objects.get(id=id)
     alimento.nombre = nombre
     alimento.categoria = categoria
-    alimento.plato = plato
     alimento.save()
 
     messages.success (request, '¡Alimento Modificado!')
     return redirect('/')
 
-def eliminacionAlimento(request, nombre):
-    alimento = Alimento.objects.get(nombre=nombre)
+def eliminacionAlimento(request, id):
+    alimento = Alimento.objects.get(id=id)
     alimento.delete()
 
     messages.success (request, '¡Alimento Eliminado!')

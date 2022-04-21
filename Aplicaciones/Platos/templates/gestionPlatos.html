@@ -1,12 +1,16 @@
-{% extends "./base.html" %} {% block title %}Platos{% endblock %} {% block body %}
+{% extends "./base.html" %}
+{% block title %}Platos{% endblock %} 
+{% block body %}
 <div class="row d-flex justify-content-center">
   <div class="col-sm-12 col-md-6 col-lg-2 col-xl-4">
-      {% if messages %} {% for message in messages %}
+      {% if messages %}
+      {% for message in messages %}
       <div class="alert alert-dismissible alert-success">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong class="text-dark">{{ message }}</strong>
       </div>
-      {% endfor %} {% endif %}
+      {% endfor %} 
+      {% endif %}
       <div class="card">
         <div class="card-body">
           <h2>Registar Platos</h2>
@@ -159,13 +163,13 @@
             <td>{{c.categoria}}</td>
             <td>{{c.plato}}</td>
             <td>
-              <a href="edicionAlimento/{{c.nombre}}" class="btn btn-info"
+              <a href="edicionAlimento/{{c.id}}" class="btn btn-info"
                 >Editar</a
               >
             </td>
             <td>
               <a
-                href="eliminacionAlimento/{{c.nombre}}"
+                href="eliminacionAlimento/{{c.id}}"
                 class="btn btn-danger btnEliminacion"
                 >Eliminar</a
               >

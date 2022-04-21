@@ -1,5 +1,6 @@
-{% extends "./base.html" %} {% block title %}Alimentos{% endblock %} {% block
-body%}
+{% extends "./base.html" %} 
+{% block title %}Alimentos{% endblock %} 
+{% block body%}
 <div class="row">
   <div class="col-md-4 offset-md-4">
     <h2>Ediatar Alimentos</h2>
@@ -7,6 +8,18 @@ body%}
       <div class="card-body">
         <form action="/editarAlimento/" method="POST">
           {% csrf_token %}
+          <div class="form-group py-1">
+            <input
+              value="{{alimento.id}}"
+              type="text"
+              id="id"
+              name="id"
+              class="form-control"
+              placeholder="id"
+              required
+              readonly
+            />
+          </div>
           <div class="form-group py-1">
             <input
               value="{{alimento.nombre}}"
@@ -32,11 +45,21 @@ body%}
             />
           </div>
           <div class="form-group py-1">
-            <select name="plato">
+            {% comment %} <select name="plato">
               {% for c in platos %}
               <option value="{{c.codigo}}">{{c.nombre}}</option>
               {% endfor %}
-            </select>
+            </select> {% endcomment %}
+            <input
+              value="{{alimento.plato}}"
+              type="text"
+              id="plato"
+              name="plato"
+              class="form-control"
+              placeholder="Plato"
+              required
+              readonly
+            />
           </div>
           <div class="form-group py-1">
             <button type="submit" class="btn btn-success btn-block text-white">
